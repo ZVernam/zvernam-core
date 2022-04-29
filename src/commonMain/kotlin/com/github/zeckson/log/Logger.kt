@@ -1,4 +1,4 @@
-package com.github.zeckson
+package com.github.zeckson.log
 
 interface Logger {
     companion object {
@@ -10,8 +10,4 @@ interface Logger {
     }
 
     fun verbose(message: String)
-}
-
-expect object LogFactory {
-    fun create(name: String): Logger
 }

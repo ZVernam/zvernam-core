@@ -3,6 +3,7 @@ package com.github.zeckson
 import com.github.zeckson.digest.Algorithm
 import com.github.zeckson.digest.Digest
 import com.github.zeckson.digest.MessageDigest
+import com.github.zeckson.log.LogFactory
 
 class VernamUtils {
     companion object {
