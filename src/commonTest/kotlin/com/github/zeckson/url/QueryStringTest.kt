@@ -8,32 +8,41 @@ class QueryStringTest {
 
     @Test
     fun empty() {
-        assertEquals(mapOf(), QueryString.parse(""))
-        assertEquals(mapOf(), QueryString.parse("&"))
-        assertEquals(mapOf(), QueryString.parse("&&&"))
+        assertParse("")
+        assertParse("&")
+        assertParse("&&&")
     }
 
     @Test
     fun onePair() {
-        assertEquals(mapOf("abc" to "def"), QueryString.parse("abc=def"))
-        assertEquals(mapOf("abc" to ""), QueryString.parse("abc"))
-        assertEquals(mapOf("" to ""), QueryString.parse("="))
+        assertParse("abc=def", "abc" to "def")
+        assertParse("abc", "abc" to "")
+        assertParse("=", "" to "")
+        assertParse("==", "" to "=")
+        assertParse("===", "" to "==")
     }
 
     @Test
     fun twoPairs() {
-        assertEquals(mapOf("abc" to "def", "two" to "three"), QueryString.parse("abc=def&two=three"))
-        assertEquals(mapOf("1" to "", "2" to "-1"), QueryString.parse("1&2=-1"))
-        assertEquals(mapOf("1" to "", "2" to ""), QueryString.parse("1&2"))
+        assertParse("abc=def&two=three", "abc" to "def", "two" to "three")
+        assertParse("1&2", "1" to "", "2" to "")
+        assertParse("1&2=-1", "1" to "", "2" to "-1")
     }
 
     @Test
     fun duplicates() {
-        assertEquals(mapOf("abc" to "efd"), QueryString.parse("abc=def&abc=efd"))
+        assertParse("abc=def&abc=efd", "abc" to "efd")
     }
 
     @Test
     fun decode() {
-        assertEquals(mapOf("a c" to "e d"), QueryString.parse("a%20c=e+d"))
+        assertParse("a%20c=e+d", "a c" to "e d")
     }
+
+    private fun assertParse(source: String, vararg pairs: Pair<String, String>) =
+        assertEquals(
+            if (pairs.isNotEmpty()) pairs.toMap(LinkedHashMap(pairs.size)) else emptyMap(),
+            QueryString.parse(source),
+            "Source: $source"
+        )
 }

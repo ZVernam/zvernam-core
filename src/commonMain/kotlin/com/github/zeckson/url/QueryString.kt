@@ -16,13 +16,17 @@ object QueryString {
         val pairs = source.split(PAIR_DELIMITER)
         for (pair in pairs) {
             if (pair.isEmpty()) continue
-            val (key, value) = pair.split(KEY_VALUE_DELIMITER).let { when (it.size) {
-                1 -> it[0] to ""
-                2 -> it[0] to it[1]
-                else -> throw IllegalStateException("Invalid key/value: $pair")
-            }}
-                map[UrlComponent.decode(key)] = UrlComponent.decode(value)
+
+            val (key, value) = pair.split(KEY_VALUE_DELIMITER, limit = 2).let {
+                when (it.size) {
+                    1 -> it[0] to ""
+                    2 -> it[0] to it[1]
+                    else -> throw IllegalStateException("Invalid key/value: $pair")
+                }
+            }
+            map[UrlComponent.decode(key)] = UrlComponent.decode(value)
         }
+
         return map
     }
 }
