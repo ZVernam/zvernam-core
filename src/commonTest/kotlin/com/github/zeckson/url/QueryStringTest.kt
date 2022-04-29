@@ -31,4 +31,9 @@ class QueryStringTest {
     fun duplicates() {
         assertEquals(mapOf("abc" to "efd"), QueryString.parse("abc=def&abc=efd"))
     }
+
+    @Test
+    fun decode() {
+        assertEquals(mapOf("a c" to "e d"), QueryString.parse("a%20c=e+d"))
+    }
 }
