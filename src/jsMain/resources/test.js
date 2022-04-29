@@ -1,3 +1,4 @@
-const library = require(`./core-library.js`);
+const VernamUtils = require(`./core-library.js`);
 
-console.log(library.encrypt(`string`, `another`));
+console.log(VernamUtils.encrypt(`string`, `another`));
+console.log(VernamUtils.hash(`string`));
