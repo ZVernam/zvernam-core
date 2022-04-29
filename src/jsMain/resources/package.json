@@ -1,0 +1,16 @@
+{
+  "name": "zvernam-core",
+  "version": "1.0.0",
+  "description": "ZVernam Core JS library",
+  "main": "core-library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zvernam",
+    "password",
+    "generate"
+  ],
+  "author": "Evgenii Shchepotev",
+  "license": "ISC"
+}
