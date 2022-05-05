@@ -12,7 +12,6 @@ fun getJSHashes(algorithm: Algorithm): JSHashes {
         Algorithm.SHA1 -> SHA1()
         Algorithm.SHA256 -> SHA256()
         Algorithm.SHA512 -> SHA512()
-        else -> throw IllegalArgumentException("Unsupported algorithm: $algorithm")
     }
     return hash
 }
