@@ -27,6 +27,11 @@ kotlin {
         }
 
     }
+    sourceSets.all {
+        languageSettings.apply {
+            optIn("kotlin.RequiresOptIn") // annotation FQ-name
+        }
+    }
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
