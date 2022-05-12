@@ -21,10 +21,10 @@ kotlin {
         }
     }
     js(IR) {
-        binaries.executable()
 
-        browser {
+        nodejs {
         }
+        binaries.library()
 
     }
     sourceSets.all {
