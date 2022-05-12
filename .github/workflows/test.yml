@@ -20,6 +20,7 @@ jobs:
         run: echo 'Current user is:' $GITHUB_ACTOR
 
       - name: Build with Gradle
+        continue-on-error: true
         run: ./gradlew check --info --stacktrace
 
       - name: Publish test result artifacts
