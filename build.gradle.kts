@@ -22,6 +22,10 @@ kotlin {
     }
     js(IR) {
 
+        compilations["main"].packageJson {
+            name = "@zvernam/zvernam-core"
+        }
+
         nodejs {
         }
         binaries.library()
