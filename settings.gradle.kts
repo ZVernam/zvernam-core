@@ -1,3 +1,2 @@
 
-rootProject.name = "core-library"
-
+rootProject.name = "zvernam-core"

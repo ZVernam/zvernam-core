@@ -1,4 +1,6 @@
-import com.github.zeckson.VernamUtils
+@file:Suppress("EXPERIMENTAL_IS_NOT_ENABLED")
+
+import com.github.zvernam.VernamUtils
 
 @OptIn(ExperimentalJsExport::class)
 @JsExport

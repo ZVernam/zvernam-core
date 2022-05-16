@@ -1,10 +1,10 @@
-import org.jetbrains.kotlin.konan.target.buildDistribution
+@file:Suppress("UNUSED_VARIABLE")
 
 plugins {
     kotlin("multiplatform") version "1.6.21"
 }
 
-group = "me.zeckson"
+group = "com.github.zvernam"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -23,7 +23,7 @@ kotlin {
     js(IR) {
 
         compilations["main"].packageJson {
-            name = "@zvernam/zvernam-core"
+            name = "@zvernam/${rootProject.name}"
         }
 
         nodejs {
