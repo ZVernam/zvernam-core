@@ -5,5 +5,8 @@ local.properties
 # Idea project files
 .idea
 
+# Env files
+.env
+
 # Ignore Gradle build output directory
 build

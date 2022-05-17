@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.zvernam"
-version = "0.3.0-SNAPSHOT"
+version = "0.3.1"
 
 repositories {
     mavenCentral()
@@ -25,6 +25,7 @@ kotlin {
         compilations["main"].packageJson {
             name = "@zvernam/${rootProject.name}"
             version = project.version.toString()
+            customField("repository" to "git://github.com:ZVernam/zvernam-core.git")
         }
 
         nodejs {
