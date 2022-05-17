@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.zvernam"
-version = "1.0-SNAPSHOT"
+version = "0.3.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -24,6 +24,7 @@ kotlin {
 
         compilations["main"].packageJson {
             name = "@zvernam/${rootProject.name}"
+            version = project.version.toString()
         }
 
         nodejs {
